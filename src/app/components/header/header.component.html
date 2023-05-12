@@ -1,0 +1,15 @@
+<nav class="navbar navbar-light bg-danger">
+    <div class="d-flex w-33">
+        <a href="/pokedex">
+            <img src="../../../assets/pokeball.png" alt="pokemon_logo" width="50">
+        </a>
+    </div>
+    <div class="d-flex w-33">
+        <form class="d-flex w-100" [formGroup]="pokeForm">
+            <input class="form-control mr-sm-3 w-100" (ngModelChange)="resetList()" type="search" formControlName="name"
+                placeholder="Procurar pokémon..." aria-label="Search">
+        </form>
+    </div>
+    <div class="flex-row-reverse w-33">
+    </div>
+</nav>

@@ -1,0 +1,12 @@
+<div class="pokelogo">
+    <img src="../../../assets/pokemon_logo.png" width="200" alt="logo">
+</div>
+<div class="bg-danger rounded-bd m-2 p-2 grid-layout">
+    <ng-container *ngFor="let poke of pokeService.AllPokes | paginate: { itemsPerPage: 4, currentPage: page }"
+        class="cards-area">
+        <pokecards [pokeData]="poke"></pokecards>
+    </ng-container>
+</div>
+<div class="paginator">
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>

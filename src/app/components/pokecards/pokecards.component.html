@@ -1,0 +1,41 @@
+<div class="card" *ngIf="pokeData">
+    <div class="card-container">
+        <img [src]="getPokemonImg(pokeData.id)" alt="poke" width="120" class="up-scale">
+    </div>
+    <div class="card-container">
+        <span class="up-scale">{{ formattedName(pokeData.name) }}</span>
+    </div>
+    <div class="card-container up-scale mt-3">
+        <button *ngIf="!pokeData.isFavorite" class="cursor" (click)="favoritePokemon(pokeData.id)">💛</button>
+        <button *ngIf="pokeData.isFavorite" class="cursor" (click)="favoritePokemon(pokeData.id)">❤</button>
+    </div>
+    <div class="card-container up-scale mt-3">
+        <button type="button" class="btn btn-sm btn-primary" (click)="pokeDialog.show()">
+            Adicionar comentário
+        </button>
+    </div>
+    <div *ngIf="pokeData.coments.length > 0" class="card-container up-scale mt-3 grid">
+        <div *ngFor="let coments of pokeData.coments" class="coment-space mb-1 d-flex justify-content-between">
+            <p>{{ coments.comentary }} </p><a (click)="deleteComent(pokeData.id, coments.id)"
+                class="delete-coment">&times;</a>
+
+        </div>
+    </div>
+</div>
+<dialog #pokeDialog class="dialog mb-5 up-scale">
+    <div class="d-flex justify-content-between align-items-center">
+        <label class="mr-1" style="color: white">Comentário:</label>
+        <div>
+            <textarea placeholder="Digite seu comentário" #coment maxlength="15">
+          </textarea>
+        </div>
+        <div class="ml-3 mt-2 d-flex align-items-center justify-content-between">
+            <div class="mr-1">
+                <button class="btn btn-sm btn-primary" (click)="saveComent(coment.value, pokeData)">Salvar</button>
+            </div>
+            <div>
+                <button class="btn btn-sm btn-primary" (click)="pokeDialog.close()">Fechar</button>
+            </div>
+        </div>
+    </div>
+</dialog>

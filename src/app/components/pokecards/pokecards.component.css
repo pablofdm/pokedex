@@ -1,0 +1,96 @@
+@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+
+.card {
+    width: 205px;
+    height: 400px;
+    background: #2468B1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    z-index: 1;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    width: 170px;
+    background-image: linear-gradient(180deg, rgb(255, 0, 0), rgb(255, 222, 0));
+    height: 145%;
+    animation: rotBGimg 3s linear infinite;
+    transition: all .2s linear;
+}
+
+.dialog {
+    margin: auto;
+    min-width: 380px;
+    bottom: 40%;
+    background: #2468B1;
+    overflow: hidden;
+    border-radius: 8px;
+    z-index: 1;
+    border: 3px solid #FFDE00;
+}
+
+.card-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid {
+    display: grid;
+}
+
+.delete-coment {
+    cursor: pointer;
+}
+
+.coment-space {
+    display: block;
+    background-color: #FFDE00;
+    border-color: 2px solid red;
+    border-radius: 8px;
+    padding: 2px 2px;
+    min-width: 180px;
+    max-width: 180px;
+    max-height: 80px;
+}
+
+p {
+    color:#2468B1;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.up-scale {
+    z-index: 5;
+}
+
+span {
+    font-family: 'Pokemon Solid', sans-serif;
+    color: #FFDE00;
+    letter-spacing: 2px;
+    line-height: 5px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+
+
+@keyframes rotBGimg {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    background: #2468B1;
+    inset: 5px;
+}
